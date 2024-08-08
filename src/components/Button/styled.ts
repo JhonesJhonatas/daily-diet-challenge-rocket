@@ -1,4 +1,4 @@
-import styled from 'styled-components/native';
+import styled from 'styled-components/native'
 
 export const StyledButton = styled.TouchableOpacity`
   padding: 16px;
@@ -10,9 +10,9 @@ export const StyledButton = styled.TouchableOpacity`
   align-items: center;
   justify-content: center;
   gap: 8px;
-`;
+`
 
 export const ButtonText = styled.Text`
   font-size: 16px;
-  color: ${({ theme }) => theme.colors['white']};
-`;
+  color: ${({ theme }) => theme.colors.white};
+`

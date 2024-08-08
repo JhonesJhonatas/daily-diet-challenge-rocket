@@ -1,4 +1,4 @@
-import { Text, View } from 'react-native';
+import { Text, View } from 'react-native'
 
 export interface SnackFormProps {}
 
@@ -7,5 +7,5 @@ export function SnackForm() {
     <View>
       <Text>SnackForm</Text>
     </View>
-  );
+  )
 }

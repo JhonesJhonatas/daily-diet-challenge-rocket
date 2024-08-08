@@ -15,4 +15,4 @@ export default {
     'gray-7': '#FAFAFA',
     white: '#FFFFFF',
   },
-};
+}

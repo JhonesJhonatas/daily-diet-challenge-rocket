@@ -1,11 +1,11 @@
-import { AntDesign } from '@expo/vector-icons';
-import { TouchableOpacityProps } from 'react-native';
+import { AntDesign } from '@expo/vector-icons'
+import { TouchableOpacityProps } from 'react-native'
 
-import { ButtonText, StyledButton } from './styled';
+import { ButtonText, StyledButton } from './styled'
 
 interface ButtonProps extends TouchableOpacityProps {
-  icon?: keyof typeof AntDesign.glyphMap;
-  text: string;
+  icon?: keyof typeof AntDesign.glyphMap
+  text: string
 }
 
 export function Button({ icon, text, ...rest }: ButtonProps) {
@@ -14,5 +14,5 @@ export function Button({ icon, text, ...rest }: ButtonProps) {
       {icon && <AntDesign name={icon} size={18} color="white" />}
       <ButtonText>{text}</ButtonText>
     </StyledButton>
-  );
+  )
 }

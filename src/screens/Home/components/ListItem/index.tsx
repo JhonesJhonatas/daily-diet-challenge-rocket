@@ -1,14 +1,14 @@
-import { Text } from 'react-native';
+import { Text } from 'react-native'
 
-import { Container, Divider, FlexArea, Status } from './styles';
+import { Container, Divider, FlexArea, Status } from './styles'
 
 interface ListItemProps {
-  time: string;
-  description: string;
-  status?: string;
+  time: string
+  description: string
+  status?: string
 }
 
-export function ListItem({ description, status, time }: ListItemProps) {
+export function ListItem({ description, time }: ListItemProps) {
   return (
     <Container>
       <FlexArea>
@@ -18,5 +18,5 @@ export function ListItem({ description, status, time }: ListItemProps) {
       </FlexArea>
       <Status />
     </Container>
-  );
+  )
 }
