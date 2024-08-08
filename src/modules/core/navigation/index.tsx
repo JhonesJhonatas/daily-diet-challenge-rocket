@@ -1,11 +1,11 @@
-import { BackButton } from '@components';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { Details, Overview } from '@screens';
+import { Home, SnackForm } from '@screens';
 
 export type RootStackParamList = {
-  Overview: undefined;
   Details: { name: string };
+  Home: typeof Home;
+  SnackForm: undefined;
 };
 
 const Stack = createStackNavigator<RootStackParamList>();
@@ -13,15 +13,9 @@ const Stack = createStackNavigator<RootStackParamList>();
 export default function RootStack() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Overview">
-        <Stack.Screen name="Overview" component={Overview} />
-        <Stack.Screen
-          name="Details"
-          component={Details}
-          options={({ navigation }) => ({
-            headerLeft: () => <BackButton onPress={navigation.goBack} />,
-          })}
-        />
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />
+        <Stack.Screen name="SnackForm" component={SnackForm} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );
