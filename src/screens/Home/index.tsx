@@ -1,4 +1,3 @@
-import { StackNavigationProp } from '@react-navigation/stack'
 import { Image } from 'react-native'
 
 import { ListItem } from './components/ListItem'
@@ -13,15 +12,11 @@ import {
 } from './styles'
 
 import { Button } from '@/components'
-import { RootStackParamList } from '@/modules/core/navigation'
+import { useNavigation } from '@react-navigation/native'
 
-type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Home'>
+export function Home() {
+  const { navigate } = useNavigation()
 
-interface HomeProps {
-  navigation: HomeScreenNavigationProp
-}
-
-export function Home({ navigation: { navigate } }: HomeProps) {
   return (
     <Container>
       <Header>

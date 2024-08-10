@@ -3,7 +3,6 @@ import { createStackNavigator } from '@react-navigation/stack'
 import { Home, SnackForm } from '@screens'
 
 export type RootStackParamList = {
-  Details: { name: string }
   Home: typeof Home
   SnackForm: undefined
 }
