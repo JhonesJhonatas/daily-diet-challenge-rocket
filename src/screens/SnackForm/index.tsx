@@ -17,10 +17,8 @@ export function SnackForm() {
   const methods = useForm()
   const { navigate } = useNavigation()
 
-  const onSubmit = methods.handleSubmit((data) => {
-    console.log('---------- DEBUG ----------')
-    console.log(data)
-    console.log('---------- DEBUG ----------')
+  const onSubmit = methods.handleSubmit(() => {
+    navigate('FormResume')
   })
 
   return (

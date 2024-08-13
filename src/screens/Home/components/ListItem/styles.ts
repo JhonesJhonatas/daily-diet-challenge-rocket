@@ -21,7 +21,7 @@ export const FlexArea = styled.View`
 
 export const Divider = styled.View`
   width: 1px;
-  height: 16;
+  height: 16px;
   background-color: ${({ theme }) => theme.colors['gray-4']};
 `
 
