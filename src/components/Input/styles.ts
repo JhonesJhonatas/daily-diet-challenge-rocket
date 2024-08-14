@@ -1,6 +1,4 @@
-import styled from 'styled-components/native'
-
-import { css } from 'styled-components'
+import styled, { css } from 'styled-components/native'
 
 import MaskInput from 'react-native-mask-input'
 import Feather from '@expo/vector-icons/Feather'
@@ -11,6 +9,7 @@ interface LabelProps {
 
 interface StyledInputProps {
   haveIcon: boolean
+  height?: 'md' | 'lg'
 }
 
 export const Container = styled.View`
@@ -31,10 +30,10 @@ export const Label = styled.Text<LabelProps>`
   ${({ type }) =>
     type === 'error'
       ? css`
-          color: ${({ theme }) => theme.colors.error};
+          color: ${({ theme }) => theme.colors['red-dark']};
         `
       : css`
-          color: ${({ theme }) => theme.colors['text-primary']};
+          color: ${({ theme }) => theme.colors['gray-1']};
         `}
 `
 
@@ -57,10 +56,21 @@ export const PasswordIcon = styled(Feather)`
 
 export const StyledInput = styled(MaskInput)<StyledInputProps>`
   width: 100%;
-  border: 1px solid ${({ theme }) => theme.colors.border};
+  border: 1px solid ${({ theme }) => theme.colors['gray-4']};
   border-radius: 4px;
   margin-top: 10px;
   margin-bottom: 10px;
+
+  ${({ height }) => {
+    switch (height) {
+      case 'lg':
+        return css`
+          height: 120px;
+        `
+      default:
+        return css``
+    }
+  }}
 
   ${({ haveIcon }) =>
     haveIcon

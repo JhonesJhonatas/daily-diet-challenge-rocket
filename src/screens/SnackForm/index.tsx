@@ -9,12 +9,22 @@ import {
 import { AntDesign } from '@expo/vector-icons'
 import { useNavigation } from '@react-navigation/native'
 import { FormProvider, useForm } from 'react-hook-form'
+import { z } from 'zod'
+import { zodResolver } from '@hookform/resolvers/zod'
+
 import { Button, Input } from '@/components'
 
-export interface SnackFormProps {}
+const formSchema = z.object({
+  name: z.string({ message: 'Nome é obrigatório' }).min(1),
+  description: z.string({ message: 'Descrição é obrigatória' }).min(1),
+  date: z.string({ message: 'Data é obrigatória' }).min(1),
+  time: z.string({ message: 'Hora é obrigatória' }).min(1),
+})
 
 export function SnackForm() {
-  const methods = useForm()
+  const methods = useForm({
+    resolver: zodResolver(formSchema),
+  })
   const { navigate } = useNavigation()
 
   const onSubmit = methods.handleSubmit(() => {
@@ -32,7 +42,7 @@ export function SnackForm() {
       <MainContent>
         <FormProvider {...methods}>
           <Input name="name" label="Nome:" />
-          <Input name="description" label="Descrição:" />
+          <Input name="description" label="Descrição:" height="lg" />
           <Input name="date" label="Data:" />
           <Input name="time" label="Hora:" />
           <Button text="Cadastrar refeição" onPress={onSubmit} />

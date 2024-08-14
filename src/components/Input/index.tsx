@@ -23,6 +23,7 @@ export interface InputProps extends TextInputProps {
   label?: string
   error?: string
   icon?: keyof typeof AntDesign.glyphMap
+  height?: 'md' | 'lg'
 }
 
 export function Input({
@@ -32,6 +33,7 @@ export function Input({
   maskType,
   type,
   icon,
+  height,
   ...rest
 }: InputProps) {
   const { control } = useFormContext()
@@ -66,6 +68,7 @@ export function Input({
                 mask={maskType ? Masks[maskType] : undefined}
                 secureTextEntry={type === 'password' && !showPassword}
                 haveIcon={!!icon}
+                height={height}
                 {...rest}
               />
               {icon ? <InputIcon name={icon} size={18} color="black" /> : null}
